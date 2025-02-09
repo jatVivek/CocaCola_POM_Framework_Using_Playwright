@@ -7,4 +7,8 @@ test.describe("Home Page Testcases", () => {
         await homePage.navigate('https://www.coca-cola.com/in/en');
         await homePage.verifyingHomePageContent();
     });
+    test("Test Case 2 - Verify Navigation of Brand Button", async ({page})=>{
+        const homePage = new HomePage();
+        await homePage.verifyBrandsNavigation();
+    })
 });

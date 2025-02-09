@@ -49,6 +49,14 @@ class HomePage extends BasePage {
         await this.verifyElement(this.ourBrandsSection);
         await this.verifyElement(this.footer);
     }
+    async verifyBrandsNavigation(){
+        await this.navigate("https://www.coca-cola.com/in/en/")
+        await this.click(this.brandButton);
+        await this.containTextAssertion(".cmp-title__text", "Explore Our Brands");
+        await this.verifyElement("#container-f602062bcb");
+
+    }
+
 }
 
 module.exports = HomePage;

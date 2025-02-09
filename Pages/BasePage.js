@@ -14,6 +14,14 @@ class BasePage {
         await this.page.waitForSelector(selector);
         await this.page.click(selector);
     }
+    async containTextAssertion(selector, expectedText){
+        await this.page.waitUntil(selector);
+        const element = await this.page.locator(selector);
+        if(!(await element.isVisible())){
+            throw new Error(`Element ${selector} is not visible.`);
+        }
+        await expect(element).toContainText(expectedText);
+    }
 
     async fill(selector, text) {
         await this.page.waitForSelector(selector);
